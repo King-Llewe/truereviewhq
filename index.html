@@ -3,12 +3,380 @@
   <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>TrueReviewHQ</title>
+        <title>TrueReviewHQ - Honest Product Reviews & Ratings</title>
+      <style>
+          * {
+                        margin: 0;
+                        padding: 0;
+                        box-sizing: border-box;
+          }
+              
+              body {
+                            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+                            line-height: 1.6;
+                            color: #333;
+              }
+              
+              header {
+                            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+                            color: white;
+                            padding: 2rem 1rem;
+                            text-align: center;
+              }
+              
+              header h1 {
+                            font-size: 3rem;
+                            margin-bottom: 0.5rem;
+              }
+              
+              header p {
+                            font-size: 1.2rem;
+                            opacity: 0.9;
+              }
+              
+              nav {
+                            background: #0f3460;
+                            padding: 1rem;
+                            position: sticky;
+                            top: 0;
+                            z-index: 100;
+              }
+              
+              nav ul {
+                            list-style: none;
+                            display: flex;
+                            justify-content: center;
+                            gap: 2rem;
+                            flex-wrap: wrap;
+              }
+              
+              nav a {
+                            color: white;
+                            text-decoration: none;
+                            font-weight: 500;
+                            transition: color 0.3s;
+              }
+              
+              nav a:hover {
+                            color: #e94560;
+              }
+              
+              .hero {
+                            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+                            color: white;
+                            padding: 4rem 1rem;
+                            text-align: center;
+              }
+              
+              .hero h2 {
+                            font-size: 2.5rem;
+                            margin-bottom: 1rem;
+              }
+              
+              .hero p {
+                            font-size: 1.1rem;
+                            max-width: 600px;
+                            margin: 0 auto 2rem;
+              }
+              
+              .cta-button {
+                            display: inline-block;
+                            background: #e94560;
+                            color: white;
+                            padding: 0.8rem 2rem;
+                            border-radius: 5px;
+                            text-decoration: none;
+                            font-weight: 600;
+                            transition: background 0.3s;
+              }
+              
+              .cta-button:hover {
+                            background: #d63548;
+              }
+              
+              .container {
+                            max-width: 1200px;
+                            margin: 0 auto;
+                            padding: 2rem 1rem;
+              }
+              
+              .categories {
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                            gap: 1.5rem;
+                            margin: 2rem 0;
+              }
+              
+              .category-card {
+                            background: white;
+                            border: 2px solid #e0e0e0;
+                            padding: 1.5rem;
+                            border-radius: 8px;
+                            text-align: center;
+                            transition: all 0.3s;
+                            cursor: pointer;
+              }
+              
+              .category-card:hover {
+                            border-color: #e94560;
+                            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.2);
+                            transform: translateY(-5px);
+              }
+              
+              .category-card h3 {
+                            color: #1a1a2e;
+                            margin-bottom: 0.5rem;
+              }
+              
+              .reviews {
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                            gap: 2rem;
+                            margin: 2rem 0;
+              }
+              
+              .review-card {
+                            background: white;
+                            border: 1px solid #e0e0e0;
+                            border-radius: 8px;
+                            padding: 1.5rem;
+                            transition: all 0.3s;
+              }
+              
+              .review-card:hover {
+                            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+              }
+              
+              .review-card h4 {
+                            color: #1a1a2e;
+                            margin-bottom: 0.5rem;
+              }
+              
+              .rating {
+                            color: #f39c12;
+                            font-weight: bold;
+                            margin: 0.5rem 0;
+              }
+              
+              .review-card p {
+                            color: #666;
+                            font-size: 0.95rem;
+                            line-height: 1.5;
+              }
+              
+              .methodology {
+                            background: #f5f5f5;
+                            padding: 2rem 1rem;
+                            margin: 3rem 0;
+              }
+              
+              .methodology h2 {
+                            color: #1a1a2e;
+                            margin-bottom: 1.5rem;
+                            text-align: center;
+              }
+              
+              .methodology-list {
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                            gap: 1.5rem;
+                            max-width: 1200px;
+                            margin: 0 auto;
+              }
+              
+              .methodology-item {
+                            background: white;
+                            padding: 1.5rem;
+                            border-radius: 5px;
+                            border-left: 4px solid #e94560;
+              }
+              
+              .methodology-item h4 {
+                            color: #1a1a2e;
+                            margin-bottom: 0.5rem;
+              }
+              
+              .disclosure {
+                            background: #fffbf0;
+                            border-left: 4px solid #f39c12;
+                            padding: 1.5rem;
+                            margin: 2rem 0;
+                            border-radius: 5px;
+              }
+              
+              .disclosure h3 {
+                            color: #1a1a2e;
+                            margin-bottom: 0.5rem;
+              }
+              
+              .disclosure p {
+                            color: #666;
+                            font-size: 0.95rem;
+              }
+              
+              footer {
+                            background: #1a1a2e;
+                            color: white;
+                            text-align: center;
+                            padding: 2rem 1rem;
+                            margin-top: 3rem;
+              }
+              
+              footer a {
+                            color: #e94560;
+                            text-decoration: none;
+              }
+              
+              footer a:hover {
+                            text-decoration: underline;
+              }
+              
+              .section-title {
+                            color: #1a1a2e;
+                            font-size: 2rem;
+                            text-align: center;
+                            margin: 2rem 0 1rem;
+              }
+          </style>
   </head>
 <body>
-      <h1>Welcome to TrueReviewHQ</h1>
-    <p>This is your website homepage.</p>
+      <header>
+                <h1>TrueReviewHQ</h1>
+              <p>Your trusted source for honest product reviews and ratings</p>
+      </header>
+    
+    <nav>
+              <ul>
+                            <li><a href="#categories">Categories</a>a></li>
+                          <li><a href="#reviews">Latest Reviews</a>a></li>
+                          <li><a href="#methodology">Our Methodology</a>a></li>
+                          <li><a href="#contact">Contact</a>a></li>
+              </ul>
+    </nav>
+    
+    <section class="hero">
+            <div class="container">
+                        <h2>Unbiased Product Reviews You Can Trust</h2>
+                        <p>We test, analyze, and review products with complete transparency. No sponsorships. No bias. Just honest feedback.</p>
+                        <a href="#reviews" class="cta-button">Read Our Reviews</a>a>
+            </div>div>
+    </section>section>
+    
+    <section class="container">
+            <h2 class="section-title" id="categories">Review Categories</h2>
+            <div class="categories">
+                        <div class="category-card">
+                                        <h3>📱 Tech & Gadgets</h3>
+                                        <p>Phones, laptops, and smart home devices</p>
+                        </div>div>
+                        <div class="category-card">
+                                        <h3>🏠 Home & Kitchen</h3>
+                                        <p>Appliances and household essentials</p>
+                        </div>div>
+                        <div class="category-card">
+                                        <h3>💪 Health & Fitness</h3>
+                                        <p>Equipment and wellness products</p>
+                        </div>div>
+                        <div class="category-card">
+                                        <h3>🎮 Entertainment</h3>
+                                        <p>Gaming and media devices</p>
+                        </div>div>
+                        <div class="category-card">
+                                        <h3>🚗 Automotive</h3>
+                                        <p>Car accessories and maintenance</p>
+                        </div>div>
+                        <div class="category-card">
+                                        <h3>👔 Fashion & Beauty</h3>
+                                        <p>Clothing, shoes, and beauty products</p>
+                        </div>div>
+            </div>div>
+    </section>section>
+    
+    <section class="container">
+            <h2 class="section-title" id="reviews">Latest Reviews</h2>
+            <div class="reviews">
+                        <div class="review-card">
+                                        <h4>Wireless Headphones Pro</h4>
+                                        <div class="rating">★★★★★ 4.8/5</div>div>
+                                        <p>Excellent sound quality, comfortable for all-day wear. Battery lasts 30+ hours. Worth the investment for audio enthusiasts.</p>
+                        </div>div>
+                        <div class="review-card">
+                                        <h4>Smart Home Hub</h4>
+                                        <div class="rating">★★★★☆ 4.5/5</div>div>
+                                        <p>Great integration with multiple devices. Setup is straightforward. Privacy controls could be more granular.</p>
+                        </div>div>
+                        <div class="review-card">
+                                        <h4>Fitness Tracker Watch</h4>
+                                        <div class="rating">★★★★★ 4.7/5</div>div>
+                                        <p>Accurate health metrics, sleek design, and intuitive interface. Battery lasts a week. Highly recommended.</p>
+                        </div>div>
+                        <div class="review-card">
+                                        <h4>Mechanical Keyboard</h4>
+                                        <div class="rating">★★★★☆ 4.6/5</div>div>
+                                        <p>Satisfying to type on with customizable RGB lighting. Feels premium. Could use better cable management.</p>
+                        </div>div>
+                        <div class="review-card">
+                                        <h4>Air Purifier XL</h4>
+                                        <div class="rating">★★★★★ 4.9/5</div>div>
+                                        <p>Removes 99.9% of particles. Quiet operation. App controls work flawlessly. Best investment for home air quality.</p>
+                        </div>div>
+                        <div class="review-card">
+                                        <h4>Camera System</h4>
+                                        <div class="rating">★★★★☆ 4.4/5</div>div>
+                                        <p>Sharp image quality and fast autofocus. Great for content creators. Learning curve on manual settings.</p>
+                        </div>div>
+            </div>div>
+    </section>section>
+    
+    <section class="methodology">
+            <div class="container">
+                        <h2 id="methodology">Our Review Methodology</h2>
+                        <div class="methodology-list">
+                                        <div class="methodology-item">
+                                                            <h4>🔬 Rigorous Testing</h4>
+                                                            <p>Every product undergoes 30+ hours of independent testing under real-world conditions.</p>
+                                        </div>div>
+                                        <div class="methodology-item">
+                                                            <h4>📊 Data-Driven Analysis</h4>
+                                                            <p>We measure performance metrics, durability, and reliability with scientific precision.</p>
+                                        </div>div>
+                                        <div class="methodology-item">
+                                                            <h4>🎯 Unbiased Reviews</h4>
+                                                            <p>No sponsorships, no affiliate bias. We test what you want to know about.</p>
+                                        </div>div>
+                                        <div class="methodology-item">
+                                                            <h4>👥 User Feedback</h4>
+                                                            <p>We incorporate verified user reviews and long-term experience reports.</p>
+                                        </div>div>
+                                        <div class="methodology-item">
+                                                            <h4>💰 Value Assessment</h4>
+                                                            <p>We evaluate price-to-performance ratio and overall value for money.</p>
+                                        </div>div>
+                                        <div class="methodology-item">
+                                                            <h4>🔄 Regular Updates</h4>
+                                                            <p>Products are re-tested and reviews updated to reflect changes and improvements.</p>
+                                        </div>div>
+                        </div>div>
+            </div>div>
+    </section>section>
+    
+    <section class="container disclosure">
+            <h3>Disclosure & Transparency</h3>
+            <p>TrueReviewHQ is committed to complete transparency. We do not accept payment from manufacturers for positive reviews. We test products at our own expense. Some links may be affiliate links that help support our work, but this never influences our ratings or recommendations. Our goal is to provide you with honest, unbiased information to make informed purchasing decisions.</p>
+    </section>section>
+    
+    <footer>
+              <div class="container">
+                            <h3>TrueReviewHQ</h3>
+                            <p>&copy; 2024 TrueReviewHQ. All rights reserved. | <a href="#contact">Contact Us</a>a> | <a href="#">Privacy Policy</a>a> | <a href="#">Terms of Service</a>a></p>p>
+                            <p style="margin-top: 1rem; font-size: 0.9rem;">Built with integrity. Tested with precision. Reviewed with honesty.</p>p>
+              </div>div>
+    </footer>
 </body>
-</html>html></p></h1>
-</body></title>
+</html>html>
+    </footer></p></p></li></li>
+              </ul>
+    </nav></p></h1>
+      </header>
+</body></style></title>
   </head>
